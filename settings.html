@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Settings - Viva Tracker</title>
+  <style>
+    body {
+      background-image: url('https://vivacollegeschool.com/wp-content/uploads/2020/02/viva-wall25225.jpg');
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+      color: white;
+      padding: 30px;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 30px;
+      border-radius: 12px;
+      border: 3px solid gold;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h1 {
+      color: gold;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section {
+      background-color: maroon;
+      border: 2px solid gold;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 10px gold;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input[type="password"],
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: none;
+      background-color: #222;
+      color: white;
+    }
+
+    button {
+      margin-top: 20px;
+      background-color: gold;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ffd700;
+    }
+
+    .message {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="overlay">
+    <h1>⚙️ Settings</h1>
+
+    <!-- Password Change Section -->
+    <div class="section">
+      <h2>Change Password</h2>
+      <label>Old Password:</label>
+      <input type="password" id="oldPassword">
+
+      <label>New Password:</label>
+      <input type="password" id="newPassword">
+
+      <label>Confirm New Password:</label>
+      <input type="password" id="confirmPassword">
+
+      <button onclick="changePassword()">Change Password</button>
+      <div id="passwordMessage" class="message"></div>
+    </div>
+
+    <!-- Appearance Section -->
+    <div class="section">
+      <h2>Appearance</h2>
+      <label>Select Theme:</label>
+      <select id="themeSelect" onchange="changeTheme()">
+        <option value="default">Dark (Default)</option>
+        <option value="light">Light Mode</option>
+      </select>
+    </div>
+  </div>
+
+  <script>
+    function changePassword() {
+      const oldPass = document.getElementById("oldPassword").value;
+      const newPass = document.getElementById("newPassword").value;
+      const confirmPass = document.getElementById("confirmPassword").value;
+      const msg = document.getElementById("passwordMessage");
+
+      // For now, password is hardcoded: viva2025
+      if (oldPass !== "viva2025") {
+        msg.style.color = "red";
+        msg.textContent = "Old password is incorrect.";
+        return;
+      }
+
+      if (newPass !== confirmPass) {
+        msg.style.color = "red";
+        msg.textContent = "New passwords do not match.";
+        return;
+      }
+
+      msg.style.color = "lime";
+      msg.textContent = "Password changed (simulated).";
+
+      // NOTE: No real password storage here — just simulation
+    }
+
+    function changeTheme() {
+      const theme = document.getElementById("themeSelect").value;
+      if (theme === "light") {
+        document.body.style.backgroundColor = "#eee";
+        document.body.style.color = "#111";
+      } else {
+        document.body.style.backgroundColor = "";
+        document.body.style.color = "";
+      }
+    }
+  </script>
+
+</body>
+</html>

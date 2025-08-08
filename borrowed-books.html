@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Borrowed Books - Viva Library Tracker</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('https://vivacollegeschool.com/wp-content/uploads/2020/02/viva-wall25225.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.85);
+      min-height: 100vh;
+      padding: 30px;
+    }
+    h1 {
+      text-align: center;
+      color: gold;
+      text-shadow: 2px 2px maroon;
+    }
+    table {
+      width: 80%;
+      margin: 30px auto;
+      border-collapse: collapse;
+      background-color: maroon;
+      border: 2px solid gold;
+    }
+    th, td {
+      border: 1px solid gold;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: gold;
+      color: black;
+    }
+    tr:hover {
+      background-color: rgba(255, 215, 0, 0.3);
+    }
+    .back-btn {
+      display: block;
+      margin: 20px auto;
+      text-align: center;
+      color: gold;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1>Borrowed Books</h1>
+    <table>
+      <tr>
+        <th>Book Title</th>
+        <th>Borrower Name</th>
+        <th>Date Borrowed</th>
+      </tr>
+      <tr><td>Longhorn Geography Book 2</td><td>John Kato</td><td>2025-08-01</td></tr>
+      <tr><td>Oxford Chemistry Guide</td><td>Sarah Nakato</td><td>2025-08-02</td></tr>
+      <tr><td>Advanced Level Math Revision</td><td>Peter Mugisha</td><td>2025-08-03</td></tr>
+    </table>
+    <a class="back-btn" href="library-data.html">⬅ Back to Library Data</a>
+  </div>
+</body>
+</html>

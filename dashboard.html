@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Viva Library Tracker - Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('https://vivacollegeschool.com/wp-content/uploads/2020/02/viva-wall25225.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid gold;
+    }
+
+    .navbar h1 {
+      font-size: 24px;
+      color: gold;
+    }
+
+    .nav-icons button {
+      background: maroon;
+      color: white;
+      border: 2px solid gold;
+      padding: 10px;
+      margin-left: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .section {
+      background-color: rgba(0, 0, 0, 0.8);
+      border: 2px solid gold;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      background: #222;
+      color: white;
+      border: 1px solid gold;
+      border-radius: 5px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    button.submit {
+      background: gold;
+      color: black;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .info-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .info-item {
+      background: maroon;
+      border: 2px solid gold;
+      border-radius: 8px;
+      flex: 1 1 200px;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .info-item h3 {
+      color: gold;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <h1>📚 Viva Library Tracker</h1>
+    <div class="nav-icons">
+      <button onclick="toggleSection('libraryData')">📖 Library Data</button>
+      <button onclick="toggleSection('notifications')">🔔 Notifications</button>
+      <button onclick="toggleSection('settings')">⚙️ Settings</button>
+    </div>
+  </div>
+
+  <!-- Library Data Section -->
+  <div id="libraryData" class="section">
+    <h2>📊 General Library Info</h2>
+    <div class="info-box">
+      <div class="info-item"><h3>Total Books</h3><p>1200</p></div>
+      <div class="info-item"><h3>Borrowed</h3><p>230</p></div>
+      <div class="info-item"><h3>Returned</h3><p>180</p></div>
+      <div class="info-item"><h3>Damaged</h3><p>15</p></div>
+      <div class="info-item"><h3>Replaced</h3><p>9</p></div>
+    </div>
+
+    <h2 style="margin-top: 30px;">📘 Borrow Book</h2>
+    <form>
+      <div class="form-group">
+        <label>Student Name:</label>
+        <input type="text">
+      </div>
+      <div class="form-group">
+        <label>Book Title:</label>
+        <input type="text">
+      </div>
+      <div class="form-group">
+        <label>Subject:</label>
+        <select>
+          <option>History</option>
+          <option>Geography</option>
+          <option>Math</option>
+          <option>Entrepreneurship</option>
+          <option>Art</option>
+          <option>ICT</option>
+          <option>Agriculture</option>
+          <option>Biology</option>
+          <option>Chemistry</option>
+          <option>Physics</option>
+          <option>English</option>
+          <option>Literature</option>
+          <option>French</option>
+          <option>Swahili</option>
+          <option>C.R.E</option>
+          <option>I.R.E</option>
+          <option>Physical Education</option>
+          <option>Others</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Book Level:</label>
+        <select>
+          <option>Book 1</option>
+          <option>Book 2</option>
+          <option>Book 3</option>
+          <option>Book 4</option>
+          <option>Ordinary Level</option>
+          <option>Advanced Level</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Stream:</label>
+        <select id="stream" onchange="checkStream(this.value)">
+          <option>Armstrong</option>
+          <option>Bill Gates</option>
+          <option>Carson</option>
+          <option>Edison</option>
+          <option>Dalton</option>
+          <option>Newton</option>
+          <option>Sciences</option>
+          <option>Arts</option>
+          <option>Staff</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Class:</label>
+        <select id="classSelect">
+          <option>Form 1</option>
+          <option>Form 2</option>
+          <option>Form 3</option>
+          <option>Form 4</option>
+          <option>Form 5</option>
+          <option>Form 6</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Teacher In Charge:</label>
+        <input type="text">
+      </div>
+      <div class="form-group">
+        <label>Date Borrowed:</label>
+        <input type="date">
+      </div>
+
+      <button type="submit" class="submit">Submit</button>
+    </form>
+  </div>
+
+  <!-- Notifications Section -->
+  <div id="notifications" class="section hidden">
+    <h2>🔔 Notifications</h2>
+    <p>⚠️ Book "Physics Book 2" borrowed by John Doe is overdue by 5 days.</p>
+    <p>⚠️ Book "Literature Book 3" borrowed by Jane Smith is overdue by 2 days.</p>
+  </div>
+
+  <!-- Settings Section -->
+  <div id="settings" class="section hidden">
+    <h2>⚙️ Settings</h2>
+    <div class="form-group">
+      <label>Change Password:</label>
+      <input type="password" placeholder="Enter new password">
+    </div>
+    <div class="form-group">
+      <label>Change Theme (Not functional yet):</label>
+      <select>
+        <option>Default (Black, Maroon, Gold)</option>
+        <option>Dark Mode</option>
+        <option>Light Mode</option>
+      </select>
+    </div>
+    <button class="submit">Save Changes</button>
+  </div>
+
+  <script>
+    function toggleSection(id) {
+      const sections = ["libraryData", "notifications", "settings"];
+      sections.forEach(sec => {
+        document.getElementById(sec).classList.add("hidden");
+      });
+      document.getElementById(id).classList.remove("hidden");
+    }
+
+    function checkStream(value) {
+      const classSelect = document.getElementById("classSelect");
+      if (value === "Staff") {
+        classSelect.disabled = true;
+      } else {
+        classSelect.disabled = false;
+      }
+    }
+  </script>
+
+</body>
+</html>

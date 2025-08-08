@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Library Data - Viva Library Tracker</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('https://vivacollegeschool.com/wp-content/uploads/2020/02/viva-wall25225.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.85);
+      min-height: 100vh;
+      padding: 30px;
+    }
+    h1 {
+      text-align: center;
+      color: gold;
+      text-shadow: 2px 2px maroon;
+    }
+    .panel-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+    .panel {
+      width: 200px;
+      height: 200px;
+      background-color: maroon;
+      border: 3px solid gold;
+      border-radius: 12px;
+      text-align: center;
+      padding: 20px;
+      cursor: pointer;
+      box-shadow: 0 0 15px gold;
+      transition: transform 0.3s;
+    }
+    .panel:hover {
+      transform: scale(1.05);
+    }
+    .panel i {
+      font-size: 48px;
+      margin-bottom: 15px;
+      display: block;
+      color: gold;
+    }
+    .panel span {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="overlay">
+    <h1>Library Data</h1>
+    <div class="panel-container">
+      <div class="panel" onclick="goTo('total-books.html')">
+        <i class="fas fa-book"></i>
+        <span>Total Books</span>
+      </div>
+      <div class="panel" onclick="goTo('borrowed-books.html')">
+        <i class="fas fa-book-reader"></i>
+        <span>Borrowed</span>
+      </div>
+      <div class="panel" onclick="goTo('returned-books.html')">
+        <i class="fas fa-undo"></i>
+        <span>Returned</span>
+      </div>
+      <div class="panel" onclick="goTo('damaged-books.html')">
+        <i class="fas fa-exclamation-triangle"></i>
+        <span>Damaged</span>
+      </div>
+      <div class="panel" onclick="goTo('replaced-books.html')">
+        <i class="fas fa-sync-alt"></i>
+        <span>Replaced</span>
+      </div>
+    </div>
+  </div>
+  <script>
+    function goTo(page) {
+      window.location.href = page;
+    }
+  </script>
+</body>
+</html>
